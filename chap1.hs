@@ -12,3 +12,12 @@ blowup (x:xs) = blowup' 1 (x:xs)
 blowup' :: Int -> String -> String
 blowup' n [] = []
 blowup' n (c:cs) = replicate n c ++ blowup' (n + 1) cs
+
+-- lengths
+lengths :: [String] -> [Int]
+lengths [] = []
+lengths x = map length x
+
+sumLengths :: [String] -> Int
+sumLengths [] = 0
+sumLengths x = foldl (+) 0 (lengths x)
